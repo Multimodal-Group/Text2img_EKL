@@ -1,0 +1,55 @@
+CONFIG_NAME: 'birds-twostages-x2-catcls-splitz-cap-eval'
+
+DATASET_NAME: 'birds'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/birds'
+#DATA_DIR: '../../data/birds'
+GPU_ID: '0'
+WORKERS: 4  # 4
+
+TREE:
+    BRANCH_NUM: 2
+
+
+TEST:
+    B_EXAMPLE: False
+    EVAL_MODE: True
+    # EVAL_MODE: False
+    # G_CAPSULE: False
+    G_CAPSULE: True        
+
+TRAIN:
+    FLAG: False    
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_17_16_29_59/Model/netG_epoch259.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_17_16_29_59/Model/netG_epoch269.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_17_17_36_32/Model/netG_epoch209.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_17_17_36_32/Model/netG_epoch249.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_17_17_38_36/Model/netG_epoch294.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_17_17_38_36/Model/netG_epoch296.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_07_57/Model/netG_epoch299.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_07_57/Model/netG_epoch295.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_16_24/Model/netG_epoch296.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_16_24/Model/netG_epoch273.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_17_17/Model/netG_epoch288.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_17_17/Model/netG_epoch266.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_18_17_07_57/Model/netG_epoch266.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_23_16_54_56/Model/netG_epoch287.pth'
+    NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule_2019_07_23_16_54_56/Model/netG_epoch297.pth'
+    #BATCH_SIZE: 24
+    # BATCH_SIZE: 64
+    BATCH_SIZE: 32
+    CAT_Z: 'concat'
+    # CAT_Z: 'product'
+    # CAT_Z: 'sum'
+    EXCHANGE: True
+
+
+GAN:
+    EMBEDDING_DIM: 128
+    ENTITY_DIM: 200
+    MANIFD_DIM: 128
+    DF_DIM: 64
+    GF_DIM: 64
+    Z_DIM: 100
+    R_NUM: 2
+    B_CONDITION: True

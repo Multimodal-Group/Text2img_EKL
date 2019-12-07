@@ -1,0 +1,45 @@
+CONFIG_NAME: 'birds-twostages-x2-catcls-splitz-cap-ca-clsprior-eval'
+
+DATASET_NAME: 'birds'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/birds'
+#DATA_DIR: '../../data/birds'
+GPU_ID: '0'
+WORKERS: 4  # 4
+
+TREE:
+    BRANCH_NUM: 2
+
+
+TEST:
+    B_EXAMPLE: False
+    EVAL_MODE: True
+    # EVAL_MODE: False
+    # G_CAPSULE: False
+    G_CAPSULE: True        
+    CLS_PRIOR: True
+
+TRAIN:
+    FLAG: False    
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule-ca_2019_07_24_18_02_48/Model/netG_epoch285.pth'
+    NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule-ca_2019_07_24_18_02_48/Model/netG_epoch299.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule-ca_2019_07_24_18_02_48/Model/netG_epoch295.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule-ca_2019_07_25_15_11_12/Model/netG_epoch295.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-splitz-capsule-ca_2019_07_25_15_11_12/Model/netG_epoch280.pth'
+    BATCH_SIZE: 32
+    CAT_Z: 'concat'
+    # CAT_Z: 'product'
+    # CAT_Z: 'sum'
+    # EXCHANGE: True
+    EXCHANGE: False
+
+
+GAN:
+    EMBEDDING_DIM: 128
+    ENTITY_DIM: 200
+    MANIFD_DIM: 128
+    DF_DIM: 64
+    GF_DIM: 64
+    Z_DIM: 128  ## for CA
+    R_NUM: 2
+    B_CONDITION: True

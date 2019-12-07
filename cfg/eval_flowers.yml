@@ -1,0 +1,40 @@
+CONFIG_NAME: 'eval_flowers-twostages-x2'
+
+DATASET_NAME: 'flowers'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/flowers/flowers'
+#DATA_DIR: '../../data/birds'
+#CUDA: False
+CUDA: True
+GPU_ID: '0'
+WORKERS: 4
+
+TREE:
+    BRANCH_NUM: 2
+    # SCALE: 2
+
+
+TEST:
+    B_EXAMPLE: False
+
+
+TRAIN:
+    FLAG: False
+    NET_G: './output/flowers_Flowers-twostages-x2_2019_03_09_22_18_18/Model/netG_15000.pth'
+    # ENTITY_NET_G: './output/flowers_Flowers-twostages-x2_2019_03_02_13_46_10/Model/entity_netG_epoch291.pth'
+    # ENTITY_NET_G: './output/flowers_Flowers-twostages-x2_2019_03_07_20_46_44/Model/entity_netG_epoch211.pth'    
+    # ENTITY_NET_G: './output/flowers_Flowers-twostages-x2_2019_03_02_13_46_10/Model/entity_netG_epoch298.pth'    
+    # ENTITY_NET_G: './output/flowers_Flowers-twostages-x2_2019_03_02_13_46_10/Model/entity_netG_epoch232.pth'    
+    #BATCH_SIZE: 24
+    BATCH_SIZE: 64
+
+
+GAN:
+    EMBEDDING_DIM: 128
+    # ENTITY_DIM: 102
+    # MANIFD_DIM: 128
+    DF_DIM: 64
+    GF_DIM: 64
+    Z_DIM: 100
+    R_NUM: 2
+    B_CONDITION: True

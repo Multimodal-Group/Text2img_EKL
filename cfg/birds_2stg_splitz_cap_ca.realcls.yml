@@ -1,0 +1,52 @@
+CONFIG_NAME: 'birds-x2-splitz-cat-cap-sca-realcls'
+
+DATASET_NAME: 'birds'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/birds'
+#DATA_DIR: '../../data/birds'
+GPU_ID: '0'
+WORKERS: 4
+
+
+TREE:
+    BRANCH_NUM: 2
+
+
+TRAIN:
+    FLAG: True
+    NET_G: ''  # '../output/birds_3stages/Model/netG_epoch_700.pth'
+    NET_D: ''  # '../output/birds_3stages/Model/netD'
+    BATCH_SIZE: 32
+    #BATCH_SIZE: 6
+    MAX_EPOCH: 300
+    SNAPSHOT_INTERVAL: 10 ## epoch
+    DISCRIMINATOR_LR: 0.0002
+    GENERATOR_LR: 0.0002
+    COEFF:
+      UNCOND_LOSS: 1.0
+    G_CAPSULE: True
+    # G_CAPSULE: False
+    D_CAPSULE: True
+    # D_CAPSULE: False
+    CAT_Z: 'concat'
+    # CAT_Z: 'product'
+    # CAT_Z: 'sum'
+    # EXCHANGE: True
+    EXCHANGE: False
+    GENERAL_IS: False
+
+
+GAN:
+    EMBEDDING_DIM: 128  ## cond dim
+    # ENTITY_DIM: 90
+    ENTITY_DIM: 200
+    MANIFD_DIM: 128
+    DF_DIM: 64  ## ndf
+    GF_DIM: 64  ## ngf
+    # Z_DIM: 100  ## noise dim
+    Z_DIM: 128  ## NOISE DIM FOR CONCAT WITH Z1, Z2(CAPSULE)
+    R_NUM: 2  ## resblock
+    B_CONDITION: True
+
+TEXT:
+    DIMENSION: 1024

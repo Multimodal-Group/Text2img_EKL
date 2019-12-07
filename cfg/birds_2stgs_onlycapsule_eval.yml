@@ -1,0 +1,37 @@
+CONFIG_NAME: 'birds-twostages-x2-onlycapsule-eval'
+
+DATASET_NAME: 'birds'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/birds'
+#DATA_DIR: '../../data/birds'
+GPU_ID: '0'
+WORKERS: 4  # 4
+
+TREE:
+    BRANCH_NUM: 2
+
+
+TEST:
+    B_EXAMPLE: False
+    EVAL_MODE: True
+    # EVAL_MODE: False
+    # CAPSULE: False
+    CAPSULE: True
+
+TRAIN:
+    FLAG: False
+    # NET_G: './output/birds_birds-twostages-x2-onlycapsule_2019_06_15_14_46_30/Model/netG_epoch279.pth' ## with capsule    
+    NET_G: './output/birds_birds-twostages-x2-onlycapsule_2019_06_15_14_46_30/Model/netG_epoch189.pth' ## with capsule    
+    #BATCH_SIZE: 24
+    BATCH_SIZE: 64
+
+
+GAN:
+    EMBEDDING_DIM: 128
+    ENTITY_DIM: 200
+    MANIFD_DIM: 128
+    DF_DIM: 64
+    GF_DIM: 64
+    Z_DIM: 100
+    R_NUM: 2
+    B_CONDITION: True

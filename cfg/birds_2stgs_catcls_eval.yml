@@ -1,0 +1,51 @@
+CONFIG_NAME: 'birds-twostages-x2-cat-eval'
+
+DATASET_NAME: 'birds'
+EMBEDDING_TYPE: 'cnn-rnn'
+DATA_DIR: '../data/birds'
+#DATA_DIR: '../../data/birds'
+GPU_ID: '0'
+WORKERS: 4  # 4
+
+TREE:
+    BRANCH_NUM: 2
+
+
+TEST:
+    B_EXAMPLE: False
+    EVAL_MODE: True
+    # EVAL_MODE: False
+    # G_CAPSULE: False
+    G_CAPSULE: True    
+
+TRAIN:
+    FLAG: False
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_01_15_06_48/Model/netG_epoch187.pth'
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_01_15_06_48/Model/netG_epoch299.pth'
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_05_31_16_06_47/Model/netG_epoch258.pth'
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_07_13_51_29/Model/netG_epoch265.pth' ## with capsule
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_07_13_51_29/Model/netG_epoch294.pth' ## with capsule
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_27_18_13_55/Model/netG_epoch289.pth' ## with d_cap, is 3.2
+    # NET_G: './output/birds_birds-twostages-x2-cat_2019_06_27_18_13_55/Model/netG_epoch109.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_06_28_16_33_48/Model/netG_epoch212.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_06_28_16_33_48/Model/netG_epoch268.pth'
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_06_28_16_33_48/Model/netG_epoch181.pth' ## g+d cap, is 2.7
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_11_10_08_35/Model/netG_epoch204.pth' ## g+d cap without glu/bn, is 2.3
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_12_14_03_25/Model/netG_epoch264.pth' ## g+d cap with origin, is 2.5
+    # NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_12_14_03_25/Model/netG_epoch286.pth' 
+    NET_G: './output/birds_birds-twostages-x2-catcls-capsule_2019_07_13_14_15_10/Model/netG_epoch209.pth'
+
+    #BATCH_SIZE: 24
+    # BATCH_SIZE: 64
+    BATCH_SIZE: 32
+
+
+GAN:
+    EMBEDDING_DIM: 128
+    ENTITY_DIM: 200
+    MANIFD_DIM: 128
+    DF_DIM: 64
+    GF_DIM: 64
+    Z_DIM: 100
+    R_NUM: 2
+    B_CONDITION: True
